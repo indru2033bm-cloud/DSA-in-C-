@@ -1,1 +1,25 @@
+<<<<<<< HEAD
 *.exe
+=======
+# Compiled files
+*.o
+*.obj
+*.exe
+*.out
+
+# VS Code settings
+.vscode/
+
+# Build folders
+build/
+cmake-build-*/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# System files
+.DS_Store
+>>>>>>> c5ede0c (To creat the git ignore and the code to github)
