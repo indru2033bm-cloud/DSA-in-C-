@@ -14,32 +14,12 @@ int fbin(int a ){
     }
     return dec ;
 }
-int sbin(int a){
-    int n = a ;
-    int dec = 0 ;
-    int pow = 1 ; 
-    while(n != 0){
-        int last = n % 10 ;
-        dec += last * pow ;
-        pow *= 2 ;
-        n /= 10 ;
-    }
-    return  dec ;
-}
+
 int sum(int a ,int b){
      int n1 = fbin(a);
-     int n2 = sbin(b);
-    //  int pow = 1 , finsum ;
-     
-     
+     int n2 = fbin(b);
      int sum = n1 + n2 ;
-    // //  return sum ;
-    // while(sum != 0){
-    //     int rem = sum % 2 ;
-    //     finsum += rem * pow ;
-    //     sum /= 2 ;
-    //     pow *= 10 ;
-    // }
+
     int n = sum;
     int binnum = 0;
     int pow = 1;
@@ -55,6 +35,6 @@ int sum(int a ,int b){
     
 }
 int main(){
-    cout << sum(10 , 11) << endl;
+    cout << sum(10 , 1) << endl;
     return 0 ;
 }
