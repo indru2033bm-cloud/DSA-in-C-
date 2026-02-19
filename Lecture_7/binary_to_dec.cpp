@@ -7,7 +7,7 @@ int bintodec(int binary){
     int pow = 1;
     while(n != 0){
      int lastdig = n % 10;
-     int dec += lastdig * pow;
+     dec += lastdig * pow;
      pow *= 2;
      n /= 10 ;
 
@@ -16,6 +16,6 @@ int bintodec(int binary){
 }
 
 int main(){
-bintodec(10010);
+bintodec(110010);
 return 0 ;
 }
