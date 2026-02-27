@@ -17,11 +17,17 @@ void Spitalmatrix(int mat[][5] , int n ,int m){
 
     //Bottom
     for(int j = ecol - 1 ; j >= scol ; j--){
+        if(srow == scol){
+            break;
+        }
         cout << mat[erow][j] << " ";
     }
 
     //Left
     for(int i = erow - 1 ; i > srow ; i--){
+        if(scol == ecol){
+            break;
+        }
         cout << mat[i][scol] << " ";
     }
     srow++ , scol++;
