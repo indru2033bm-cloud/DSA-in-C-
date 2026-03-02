@@ -1,18 +1,18 @@
 #include<iostream>
 
 using namespace std;
-void print(int *arr , int n){
+void print(char *arr , int n){
     for(int i = 0 ; i < n ; i++){
         cout << arr[i] << " ";
     }
 }
 
-void inserction(int *arr ,int n){
+void inserction(char *arr ,int n){
     for(int i = 1 ; i < n ; i++){
         // int curr = i;
         int curr = arr[i];
         int prev = i - 1; 
-        while(prev >= 0 && arr[prev] > curr){
+        while(prev >= 0 && arr[prev] < curr){
             swap(arr[prev],arr[prev + 1]);
             prev--;
         }
@@ -22,7 +22,7 @@ void inserction(int *arr ,int n){
     print(arr , n);
 }
 int main(){
-    int arr[] = {2 , 5 ,1 ,3 ,4};
-    int n = sizeof(arr) / sizeof(int);
+    char arr[] = {'f','b','a','e','c','d'};
+    int n = sizeof(arr) / sizeof(char);
     inserction(arr , n);
 }
