@@ -20,6 +20,10 @@ int bionomal(int n ,int r){
     int result = val1 / (val2 * val3);
     return result ;
 }
+//
+// ionamal_coffecent =    n! / r! * (n - r)!
+//                       
+//
 
 int main(){
     cout << bionomal(10 , 3) << endl;
