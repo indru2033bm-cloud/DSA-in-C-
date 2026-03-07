@@ -3,6 +3,7 @@
 using namespace std;
 
 char next_char(char c){
+    if(c == 'Z'){return 'a';}
     return c + 1 ;
 }
 
