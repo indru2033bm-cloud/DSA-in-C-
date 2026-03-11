@@ -12,7 +12,7 @@ class Animal{
     }
 };
 
-class Fish : protected Animal{
+class Fish : public Animal{
     public:
     int fins;
     void swim(){
@@ -24,8 +24,8 @@ class Fish : protected Animal{
 int main(){
  Fish f1;
  f1.fins = 4;
-//  f1.eat();
-//  f1.breaths();
+ f1.eat();
+ f1.breaths();
  f1.swim();
  return 0;
 }
