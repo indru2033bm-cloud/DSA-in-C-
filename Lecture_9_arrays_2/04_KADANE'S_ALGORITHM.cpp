@@ -17,7 +17,7 @@ void maxsub_of_subarray(int *arr ,int n){
 }
 
 int main(){
-    int arr[] = {2 , -3 }; // 2 , -3 , 6 ,-5 , 4 , 2 
+    int arr[] = {1 , -3 , 4 ,5 ,-3 , 6}; // 2 , -3 , 6 ,-5 , 4 , 2 
     int n = sizeof(arr)/sizeof(int);
 
     maxsub_of_subarray(arr , n);
