@@ -11,6 +11,13 @@ class Node{
         this->data = data;
         this->next = NULL;
     }
+    ~Node(){
+        if(next != NULL){
+            cout << "~Node" << data <<endl;
+            delete next;
+            next = NULL;
+        }
+    }
 
 };
 
@@ -22,6 +29,14 @@ class list{
     list(){
         head = NULL;
         tail = NULL;
+    }
+
+    ~list(){
+        if(head != NULL){
+            cout << "~List\n";
+            delete head;
+            head = NULL;
+        }
     }
     void push_front(int val){
     Node* newNode = new Node(val);
@@ -72,10 +87,6 @@ int main(){
     ll.push_front(3);
     ll.push_front(2);
     ll.push_front(1);
-    
-    ll.push_back(4);
-    ll.push_back(5);
-    ll.insert(100,3);
     ll.printll();
     return 0;
 }
