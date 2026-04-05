@@ -1,7 +1,6 @@
 #include<iostream>
 
 using namespace std;
-
 class Node{
     public:
     int data;
@@ -18,7 +17,6 @@ class Node{
     }
 
 };
-
 class List{
     Node* head;
     Node* tail;
@@ -42,44 +40,40 @@ class List{
         }
 
     }
-    int Search(int key){
+    void print(){
         Node* temp = head;
-        int count = 0;
+        if(temp == NULL){
+            cout << "LIst is empty\n";
+            return ;
+        }
         while(temp != NULL){
-            if(temp->data == key){
-              cout << "Element fount at position " << count  << endl;
-            }
-            count++;
+            cout << temp->data << " -> ";
             temp = temp->next;
-        } 
-        return -1;
+        }
+        cout <<"NULL\n";
     }
-    int helper(Node* h,int key){
-        if(h == NULL){
-            return -1;
+    void Reverse(){
+        Node* prev = NULL;
+        Node* curr = head;
+        while(curr != NULL){
+            Node* next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
         }
-        if(h->data == key){
-            return 0;
-        }
-        int idx = helper(h->next,key);
-        if(idx == -1){
-            return -1;
-        }
-        return idx + 1;
-    }
-    int SearchRec(int key){
-        return helper(head,key);
+        swap(head,tail);
+
     }
 };
-
 int main(){
-    List ll;
+List ll;
     ll.push_front(5);
     ll.push_front(4);
     ll.push_front(3);
     ll.push_front(2);
     ll.push_front(1);
-    // ll.Search(20);
-    cout << ll.SearchRec(2) << endl;
-    return 0;
+    ll.print();
+    ll.Reverse();
+    ll.print();
+     return 0;
 }
