@@ -13,7 +13,7 @@ class Node{
     }
     ~Node(){
         if(next != NULL){
-            cout << "~Node" << data <<endl;
+            // cout << "~Node" << data <<endl;
             delete next;
             next = NULL;
         }
@@ -33,7 +33,7 @@ class list{
 
     ~list(){
         if(head != NULL){
-            cout << "~List\n";
+            // cout << "~List\n";
             delete head;
             head = NULL;
         }
@@ -81,12 +81,42 @@ class list{
         newNode->next = temp->next;
             temp->next = newNode;
     }
+    void pop_front(){
+        if(head == NULL){
+            cout << "List is empty\n";
+            return;
+        }
+        Node* temp = head;
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+    }
+    void pop_back(){
+        // if(head == NULL){
+        //     cout << "List is empty\n";
+        //     return;
+        // }
+        // if(head->next = NULL){
+        //     delete head;
+        //     head = tail = NULL;
+        //     return;
+        // }
+        Node* temp = head;
+        while(temp->next->next != NULL){
+            temp = temp->next;
+        }
+        temp->next = NULL;
+        delete tail;
+        tail = temp;
+
+    }
 };
 int main(){
     list ll;
     ll.push_front(3);
     ll.push_front(2);
     ll.push_front(1);
+    ll.pop_back();
     ll.printll();
     return 0;
 }
