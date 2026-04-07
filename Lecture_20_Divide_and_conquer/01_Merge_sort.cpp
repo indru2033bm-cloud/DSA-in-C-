@@ -23,19 +23,22 @@ void merge(int *arr ,int si ,int ei ,int mid){
         arr[idx] = temp[x++];
     }
 }
-void mergeSort(int *arr , int si ,int ei){
-    if(si >= ei){return ;}
-    int mid = si + (ei - si)/2;
-    mergeSort(arr , si ,mid);
-    mergeSort(arr , mid + 1 ,ei);
-    merge(arr , si ,ei ,mid);
-}
 void printarr(int *arr , int n){
     for(int i = 0; i < n ;i++){
         cout << arr[i] << " " ;
     }
     cout<< endl;
 }
+
+void mergeSort(int *arr , int si ,int ei){
+    if(si >= ei){return ;}
+    int mid = si + (ei - si)/2;
+    mergeSort(arr , si ,mid);
+    mergeSort(arr , mid + 1 ,ei);
+    merge(arr , si ,ei ,mid);
+    printarr(arr , ei + 1);
+}
+
 int main(){
     int arr[6] = {6 , 3 , 7 , 5 , 2 , 4};
     int n = 6;
