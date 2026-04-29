@@ -103,29 +103,62 @@ class HashTable{
         Node* temp = table[idx];
         while(temp != NULL){
             if(temp->key == key){
-                return true;
+                return temp->val;
             }
-
-            return false;
+            temp = temp->next;
+            return -1;
         }
 
     }
     void remove(string key){
+        int idx = hashfunction(key);
 
+        Node* temp = table[idx];
+        Node* prev = temp;
+        while(temp != NULL){
+            if(temp->key == key){
+                if(prev == temp){
+                    table[idx] = temp->next;
+                }else{
+                    prev->next = temp->next;
+                }
+                break;
+            }
+            prev = temp;
+            temp = temp->next;
+        }
+    }
+
+    void print(){
+        for(int i = 0 ; i < totalsize ; i++){
+            cout << "idx" << i << "->";
+            Node* temp = table[i];
+            while(temp != NULL) {
+                cout << temp->key << "->" << temp->val << "->";
+                temp = temp-> next;
+            }
+            cout << endl;
+        }
     }
 };
 
 int main(){
     HashTable ht(6);
     ht.insert("India",150);
-    ht.insert("chain",150);
+    ht.insert("china",150);
     ht.insert("Naple",10);
     ht.insert("US",50);
     ht.insert("UK",30);
-    if(ht.exist("India")){
-        cout << "Popualtion of india is:" << ht.search("India") << endl;
-    }else{
-        cout << "NOt exist \n";
-    }
+    ht.insert("Russia",20);
+    ht.insert("Japan",30);
+    ht.print();
+    cout << "-----------end-------------\n";
+    ht.remove("Naple");
+    ht.print();
+    // if(ht.exist("India")){
+    //     cout << "Popualtion of india is:" << ht.search("US") << endl;
+    // }else{
+    //     cout << "NOt exist \n";
+    // }
     return 0;
 }
