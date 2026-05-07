@@ -1,7 +1,12 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 
 using namespace std;
+
+bool compare(pair<int,int> a , pair<int,int> b){
+    return a.second < b.second;
+}
 
 int main() {
     vector<int> first = {0 , 1 ,2};
@@ -14,6 +19,12 @@ int main() {
     }
 
     for(int i = 0 ; i < act.size() ; i++){
+        cout << act[i].first << "," << act[i].second << endl;
+    }
+
+    sort(act.begin(),act.end(),compare);
+    cout << "--------sorted--------" << endl;
+      for(int i = 0 ; i < act.size() ; i++){
         cout << act[i].first << "," << act[i].second << endl;
     }
 
