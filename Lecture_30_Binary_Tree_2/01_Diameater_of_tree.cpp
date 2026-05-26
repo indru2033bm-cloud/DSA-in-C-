@@ -47,13 +47,24 @@ int Diameter(Node* root)
 
     return max(currDiam , max(leftdiam, rightdiam));
 }
+pair<int,int> diam(Node* root){
 
+
+    pair<int,int> leftinfo = diam(root->left);
+    pair<int,int> rightinfo = diam(root->right);
+
+    int currentdia = leftinfo.second + rightinfo.second + 1;
+    int maxdia = max(currentdia, max(leftinfo.first, rightinfo.first));
+    int height = max(leftinfo.second, rightinfo.second) + 1;
+    return {maxdia, height};
+}
 int main(){
     vector<int> nods = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
     Node* root = Binary_Tree(nods);
 
     // cout << "Root Node: " << root->data << endl;
     // cout << "Height of Tree: " << Height(root) << endl;
-    cout << "Diameter of Tree: " << Diameter(root) << endl;
+    // cout << "Diameter of Tree: " << Diameter(root) << endl;
+    cout << "Diameter of Tree: " << diam(root).first << endl;
     return 0;
 }
